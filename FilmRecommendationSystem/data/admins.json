@@ -1,0 +1,9 @@
+[
+    {
+        "username": "admin1",
+        "password": "admin123",
+        "role": "admin",
+        "name": "John Doe",
+        "dob": "1980-05-15"
+    }
+]
