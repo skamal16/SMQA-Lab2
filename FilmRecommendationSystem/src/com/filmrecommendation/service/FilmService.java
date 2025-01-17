@@ -3,28 +3,25 @@ package com.filmrecommendation.service;
 import com.filmrecommendation.models.Film;
 import com.filmrecommendation.utils.JsonFileManager;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class FilmService {
-	
+
     private List<Film> films;
 
     public FilmService() {
-        films = JsonFileManager.loadFilms();
+        this.films = JsonFileManager.loadFilms();
     }
 
     public List<Film> getAllFilms() {
         return films;
     }
 
-    public List<Film> searchFilms(String title) {
-        return films.stream()
-                .filter(film -> film.getTitle().toLowerCase().contains(title.toLowerCase()))
-                .collect(Collectors.toList());
-    }
-
     public void addFilm(Film film) {
+        if (film.getTitle() == null || film.getTitle().isEmpty() || film.getGenre() == null || film.getGenre().isEmpty()) {
+            return;
+        }
         films.add(film);
         JsonFileManager.saveFilms(films);
     }
@@ -47,5 +44,15 @@ public class FilmService {
         }
         return removed;
     }
-    
+
+    public List<Film> searchFilms(String title) {
+        List<Film> result = new ArrayList<>();
+        for (Film film : films) {
+            if (film.getTitle().equalsIgnoreCase(title)) {
+                result.add(film);
+            }
+        }
+        return result;
+    }
+
 }
