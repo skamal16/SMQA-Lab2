@@ -5,6 +5,23 @@ import com.filmrecommendation.service.FilmService;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+/*
+ * ===========================================================================================
+ *                                 Film Recommendation System
+ *                                MSc Advanced Computer Science
+ *                                  University of Leicester
+ * 
+ *  Module: Software Measurement and Quality Assurance (CO7095)
+ *  Last Modified: 17/01/2025
+ * 
+ *  This class is part of the group project for the Film Recommendation System.
+ *  The project aims to provide personalized film recommendations using various algorithms 
+ *  and user preferences. This system incorporates film data management, user authentication, 
+ *  and an intuitive interface to enhance the overall user experience.
+ * 
+ * ===========================================================================================
+ */
+
 public class StatementTesting {
 
     private FilmService filmService = new FilmService();

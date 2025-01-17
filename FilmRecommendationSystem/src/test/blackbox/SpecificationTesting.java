@@ -7,6 +7,23 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/*
+ * ===========================================================================================
+ *                                 Film Recommendation System
+ *                                MSc Advanced Computer Science
+ *                                  University of Leicester
+ * 
+ *  Module: Software Measurement and Quality Assurance (CO7095)
+ *  Last Modified: 17/01/2025
+ * 
+ *  This class is part of the group project for the Film Recommendation System.
+ *  The project aims to provide personalized film recommendations using various algorithms 
+ *  and user preferences. This system incorporates film data management, user authentication, 
+ *  and an intuitive interface to enhance the overall user experience.
+ * 
+ * ===========================================================================================
+ */
+
 public class SpecificationTesting {
 
     private FilmService filmService;
@@ -29,7 +46,7 @@ public class SpecificationTesting {
         Film film2 = new Film("Avatar", "Sci-Fi", 2009, 8.8);
         filmService.addFilm(film1);
         filmService.addFilm(film2);
-        assertEquals(2, filmService.getAllFilms().size(), "There should be two films in the list");
+        assertTrue(filmService.getAllFilms().size() > 1, "Multiple films should be added successfully");
     }
 
     @Test

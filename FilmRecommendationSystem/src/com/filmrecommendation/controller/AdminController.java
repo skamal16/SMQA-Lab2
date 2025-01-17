@@ -10,6 +10,23 @@ import com.filmrecommendation.models.User;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+ * ===========================================================================================
+ *                                 Film Recommendation System
+ *                                MSc Advanced Computer Science
+ *                                  University of Leicester
+ * 
+ *  Module: Software Measurement and Quality Assurance (CO7095)
+ *  Last Modified: 17/01/2025
+ * 
+ *  This class is part of the group project for the Film Recommendation System.
+ *  The project aims to provide personalized film recommendations using various algorithms 
+ *  and user preferences. This system incorporates film data management, user authentication, 
+ *  and an intuitive interface to enhance the overall user experience.
+ * 
+ * ===========================================================================================
+ */
+
 public class AdminController {
 
     private Scanner scanner;
@@ -25,6 +42,11 @@ public class AdminController {
         this.scanner = scanner;
     }
 
+    /**
+     * This function handles the admin login process.
+     * It prompts the admin for their username and password, then authenticates them.
+     * If successful, it displays the admin menu; otherwise, it shows an error message.
+     */
     public void loginAdmin() {
     	System.out.println("===========================================================");
     	System.out.println("                   Enter Admin Credentials                 ");
@@ -45,6 +67,11 @@ public class AdminController {
         }
     }
 
+    /**
+     * This function displays the admin menu and allows the admin to choose various actions
+     * such as listing, searching, updating, or deleting films and users.
+     * The admin can also log out or exit the application.
+     */
     public void showAdminMenu() {
         while (true) {
         	System.out.println("===========================================================");
@@ -84,6 +111,10 @@ public class AdminController {
         }
     }
 
+    /**
+     * This function lists all films from the filmService.
+     * It displays the title of each film. If there are no films, a message is shown indicating no films are available.
+     */
     private void listAllFilms() {
     	List<Film> films = filmService.getAllFilms();
     	System.out.println("===========================================================");
@@ -96,6 +127,11 @@ public class AdminController {
         }
     }
 
+    /**
+     * This function allows the admin to search for a film by its title.
+     * It prompts the admin for the film title and displays the search results.
+     * If no films match the title, a message indicating no films found is displayed.
+     */
     private void searchFilm() {
     	System.out.println("===========================================================");
         System.out.print("Enter film title to search: ");
@@ -113,6 +149,10 @@ public class AdminController {
         }
     }
 
+    /**
+     * This function allows the admin to create a new film by entering its title, genre, year, and rating.
+     * The film is then added to the database via the adminService.
+     */
     private void createFilm() {
     	System.out.println("===========================================================");
     	System.out.println("                        Create Film                        ");
@@ -132,6 +172,10 @@ public class AdminController {
         System.out.println("Film added successfully!");
     }
 
+    /**
+     * This function allows the admin to update the details of an existing film.
+     * The admin provides the title of the film, and if found, they can update its genre and year.
+     */
     private void updateFilm() {
     	System.out.println("===========================================================");
     	System.out.println("                        Update Film                        ");
@@ -157,6 +201,10 @@ public class AdminController {
         }
     }
 
+    /**
+     * This function allows the admin to delete a film based on its title.
+     * If the film exists, it is deleted; otherwise, a message is shown indicating the film was not found.
+     */
     private void deleteFilm() {
     	System.out.println("===========================================================");
     	System.out.println("                        Delete Film                        ");
@@ -174,6 +222,10 @@ public class AdminController {
         }
     }
 
+    /**
+     * This function lists all users from the adminService.
+     * It displays information about each user. If no users are found, a message is displayed.
+     */
     private void listAllUsers() {
         List<User> users = adminService.getAllUsers();
     	System.out.println("===========================================================");
@@ -186,6 +238,10 @@ public class AdminController {
         }
     }
 
+    /**
+     * This function allows the admin to search for a user by their username.
+     * If the user exists, their details are displayed; otherwise, a message is shown indicating the user was not found.
+     */
     private void searchUser() {
     	System.out.println("===========================================================");
         System.out.print("Enter username to search: ");
@@ -203,6 +259,10 @@ public class AdminController {
         }
     }
 
+    /**
+     * This function allows the admin to update a user's password.
+     * The admin provides the username of the user they want to update and sets a new password.
+     */
     private void updateUser() {
     	System.out.println("===========================================================");
     	System.out.println("                        Update User                        ");
@@ -225,6 +285,10 @@ public class AdminController {
         }
     }
 
+    /**
+     * This function allows the admin to delete a user by their username.
+     * If the user exists, they are deleted; otherwise, a message is shown indicating the user was not found.
+     */
     private void deleteUser() {
     	System.out.println("===========================================================");
     	System.out.println("                        Delete User                        ");
@@ -241,7 +305,11 @@ public class AdminController {
             System.out.println("User not found.");
         }
     }
-    
+
+    /**
+     * This function handles the logout process.
+     * It logs out the admin and displays a confirmation message.
+     */
     private void logout() {
     	System.out.println("===========================================================");
         System.out.println("Logged out successfully.");

@@ -8,6 +8,23 @@ import com.filmrecommendation.service.FilmService;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+ * ===========================================================================================
+ *                                 Film Recommendation System
+ *                                MSc Advanced Computer Science
+ *                                  University of Leicester
+ * 
+ *  Module: Software Measurement and Quality Assurance (CO7095)
+ *  Last Modified: 17/01/2025
+ * 
+ *  This class is part of the group project for the Film Recommendation System.
+ *  The project aims to provide personalized film recommendations using various algorithms 
+ *  and user preferences. This system incorporates film data management, user authentication, 
+ *  and an intuitive interface to enhance the overall user experience.
+ * 
+ * ===========================================================================================
+ */
+
 public class UserController {
 	
     private UserService userService;
@@ -22,6 +39,16 @@ public class UserController {
         this.currentUsername = null;
     }
 
+    /**
+     * Registers a new user if the username is available.
+     * 
+     * @param firstName The user's first name.
+     * @param lastName The user's last name.
+     * @param dob The user's date of birth.
+     * @param username The user's desired username.
+     * @param password The user's password.
+     * @return true if the user is successfully registered, false if the username is already taken.
+     */
     public boolean registerUser(String firstName, String lastName, String dob, String username, String password) {
         if (!userService.checkUsernameAvailability(username)) {
             return false;
@@ -33,6 +60,10 @@ public class UserController {
         return true;
     }
 
+    /**
+     * Prompts the user to enter their credentials and logs them in if the credentials are valid.
+     * If login is successful, the user is directed to the user menu.
+     */
     public void loginUser() {
     	System.out.println("===========================================================");
     	System.out.println("                   Enter User Credentials                  ");
@@ -53,6 +84,11 @@ public class UserController {
         }
     }
 
+    /**
+     * Displays the user menu with options such as viewing films, searching films,
+     * changing password, logging out, and exiting the application.
+     * Continuously prompts the user for action until they log out or exit.
+     */
     public void showUserMenu() {
         while (currentUsername != null) {
         	System.out.println("===========================================================");
@@ -91,6 +127,10 @@ public class UserController {
         }
     }
 
+    /**
+     * Lists all the films available in the system.
+     * If no films are available, it will display a message indicating so.
+     */
     private void listAllFilms() {
         List<Film> films = filmService.getAllFilms();
     	System.out.println("===========================================================");
@@ -103,6 +143,10 @@ public class UserController {
         }
     }
 
+    /**
+     * Prompts the user to enter a film title and searches for films that match the title.
+     * Displays the search results or an appropriate message if no results are found.
+     */
     private void searchFilm() {
     	System.out.println("===========================================================");
         System.out.print("Enter film title to search: ");
@@ -119,6 +163,10 @@ public class UserController {
         }
     }
 
+    /**
+     * Prompts the user to enter a new password and updates the user's password.
+     * Provides feedback on whether the password change was successful.
+     */
     private void changePassword() {
     	System.out.println("===========================================================");
         System.out.print("Enter new password: ");
@@ -132,6 +180,9 @@ public class UserController {
         }
     }
 
+    /**
+     * Logs the current user out of the application and returns to the login state.
+     */
     private void logout() {
         currentUsername = null;
     	System.out.println("===========================================================");

@@ -8,10 +8,32 @@ import com.filmrecommendation.service.FilmService;
 import com.filmrecommendation.service.UserService;
 import java.util.Scanner;
 
+/*
+ * ===========================================================================================
+ *                                 Film Recommendation System
+ *                                MSc Advanced Computer Science
+ *                                  University of Leicester
+ * 
+ *  Module: Software Measurement and Quality Assurance (CO7095)
+ *  Last Modified: 17/01/2025
+ * 
+ *  This class is part of the group project for the Film Recommendation System.
+ *  The project aims to provide personalized film recommendations using various algorithms 
+ *  and user preferences. This system incorporates film data management, user authentication, 
+ *  and an intuitive interface to enhance the overall user experience.
+ * 
+ * ===========================================================================================
+ */
+
 public class MainApp {
 	
     private static Scanner scanner = new Scanner(System.in);
-    
+
+    /**
+     * Main entry point of the application. Initializes the necessary services and controllers.
+     * Displays the main menu to the user and directs them to appropriate controllers based on their choice.
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         FilmService filmService = new FilmService();
         UserService userService = new UserService();
@@ -24,6 +46,14 @@ public class MainApp {
         displayMainMenu(visitorController, userController, adminController);
     }
 
+    /**
+     * Displays the main menu with options to either enter as a visitor, login as a user, signup as a user,
+     * login as an admin, or exit the application.
+     * Based on the user's choice, it directs to the respective action (controller).
+     * @param visitorController the controller handling visitor actions
+     * @param userController the controller handling user actions
+     * @param adminController the controller handling admin actions
+     */
     private static void displayMainMenu(VisitorController visitorController, UserController userController, AdminController adminController) {
         while (true) {
         	System.out.println("===========================================================");
@@ -64,6 +94,12 @@ public class MainApp {
         }
     }
 
+    /**
+     * Handles the user signup process by collecting necessary user information (first name, last name, 
+     * date of birth, username, and password) and then registering the user.
+     * If registration is successful, the user is logged in automatically and the user menu is displayed.
+     * @param userController the controller handling user actions
+     */
     private static void signUpUser(UserController userController) {
     	System.out.println("===========================================================");
     	System.out.println("                        User Signup                        ");

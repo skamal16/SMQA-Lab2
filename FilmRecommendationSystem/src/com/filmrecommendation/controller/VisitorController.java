@@ -6,6 +6,23 @@ import com.filmrecommendation.models.Film;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+ * ===========================================================================================
+ *                                 Film Recommendation System
+ *                                MSc Advanced Computer Science
+ *                                  University of Leicester
+ * 
+ *  Module: Software Measurement and Quality Assurance (CO7095)
+ *  Last Modified: 17/01/2025
+ * 
+ *  This class is part of the group project for the Film Recommendation System.
+ *  The project aims to provide personalized film recommendations using various algorithms 
+ *  and user preferences. This system incorporates film data management, user authentication, 
+ *  and an intuitive interface to enhance the overall user experience.
+ * 
+ * ===========================================================================================
+ */
+
 public class VisitorController {
 
     private Scanner scanner;
@@ -16,6 +33,11 @@ public class VisitorController {
         this.scanner = scanner;
     }
 
+    /**
+     * Displays the visitor menu with options to list all films, search for a film,
+     * go back to the previous menu, or exit the application.
+     * Continuously prompts the user for an action until they choose to exit or go back.
+     */
     public void showVisitorMenu() {
         while (true) {
         	System.out.println("===========================================================");
@@ -48,6 +70,10 @@ public class VisitorController {
         }
     }
 
+    /**
+     * Lists all the films available in the system.
+     * If no films are available, it will display a message indicating that no films are present.
+     */
     private void listAllFilms() {
         List<Film> films = filmService.getAllFilms();
     	System.out.println("===========================================================");
@@ -60,6 +86,10 @@ public class VisitorController {
         }
     }
 
+    /**
+     * Prompts the user to enter a film title and searches for films that match the title.
+     * Displays the search results or an appropriate message if no results are found.
+     */
     private void searchFilm() {
     	System.out.println("===========================================================");
         System.out.print("Enter film title to search: ");
